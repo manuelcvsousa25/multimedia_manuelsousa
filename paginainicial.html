@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard Web | FinanceLab</title>
+    <meta name="description" content="Explora os simuladores educativos e o Money Catcher do FinanceLab.">
+
+    <link rel="stylesheet" href="paginainicial.css?v=2">
+
+    <style>
+        * {
+            margin: 0;              
+            padding: 0;             
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif; 
+            background-color: #0b1120;     
+            color: #ffffff;               
+            padding: 25px;                
+        }
+
+        header {
+            background-color: #111c30;       /* Fundo do cabeçalho */
+            border: 1px solid #263650;       /* Adiciona uma linha de contorno */
+            border-radius: 12px;             /* Arredonda os cantos */
+            padding: 25px 35px;              /* Espaçamento interior */
+            display: flex;                   /* Coloca os elementos na mesma linha */
+            justify-content: space-between;  /* Distribui os elementos horizontalmente */
+            align-items: center;             /* Alinha os elementos verticalmente */
+        }
+
+        /* Personaliza o nome e logótipo da plataforma */
+        .logo {
+            font-size: 27px;       /* Define o tamanho das letras */
+            font-weight: bold;     /* Coloca o texto a negrito */
+            color: #4d9fff;        /* Define a cor azul do logótipo */
+        }
+
+        /* Personaliza a parte "Lab" do logótipo */
+        .logo span {
+            color: white;          /* Coloca esta parte do logótipo a branco */
+        }
+
+        /* Organiza os links do menu de navegação */
+        nav {
+            display: flex;         /* Coloca os links na horizontal */
+            gap: 25px;              /* Define o espaço entre os links */
+        }
+
+        /* Personaliza os links do menu */
+        nav a {
+            color: #aab8ce;        /* Define a cor dos links */
+            text-decoration: none; /* Remove o sublinhado */
+            font-size: 14px;       /* Define o tamanho da letra */
+            transition: 0.3s;      /* Suaviza as alterações visuais */
+        }
+
+        /* Altera a cor dos links quando o rato passa por cima */
+        nav a:hover {
+            color: #4d9fff;        /* Destaca o link a azul */
+        }
+
+        /* Define os espaços da secção de introdução */
+        .welcome {
+            margin-top: 35px;       /* Espaço acima da secção */
+            margin-bottom: 25px;    /* Espaço abaixo da secção */
+        }
+
+        /* Personaliza o título principal */
+        .welcome h1 {
+            font-size: 30px;        /* Define o tamanho do título */
+            margin-bottom: 10px;    /* Espaço entre o título e o parágrafo */
+        }
+
+        /* Personaliza o texto de apresentação */
+        .welcome p {
+            color: #91a0b8;         /* Define uma cor cinzenta azulada */
+            font-size: 15px;        /* Define o tamanho do texto */
+        }
+
+        /* Define o espaço abaixo do título da secção */
+        .section-title {
+            margin-bottom: 20px;
+        }
+
+        /* Personaliza o título dos widgets */
+        .section-title h2 {
+            font-size: 22px;       /* Define o tamanho do título */
+            margin-bottom: 7px;    /* Espaço abaixo do título */
+        }
+
+        /* Personaliza a descrição da secção */
+        .section-title p {
+            color: #91a0b8;        /* Cor do texto */
+            font-size: 13px;       /* Tamanho da letra */
+        }
+
+
+
+        /* Organiza os três widgets principais */
+        .dashboard-grid {
+            display: grid;                         /* Ativa o sistema de grelha */
+            grid-template-columns: repeat(3, 1fr); /* Cria três colunas iguais */
+            gap: 22px;                              /* Espaço entre os widgets */
+        }
+
+        /* Personaliza os cartões principais */
+        .widget-card {
+            background-color: #111c30; /* Fundo dos widgets */
+            border: 1px solid #263650; /* Contorno */
+            border-radius: 14px;       /* Arredonda os cantos */
+            padding: 23px;             /* Espaçamento interior */
+            transition: 0.3s;          /* Suaviza as animações */
+        }
+
+        /* Cria um efeito quando o rato passa por cima dos widgets */
+        .widget-card:hover {
+            transform: translateY(-5px); /* Eleva ligeiramente o cartão */
+            border-color: #4d9fff;        /* Muda a cor do contorno */
+        }
+
+        /* Personaliza os ícones dos widgets */
+        .widget-icon {
+            font-size: 30px;       /* Aumenta o tamanho dos ícones */
+            margin-bottom: 15px;   /* Espaço abaixo do ícone */
+        }
+
+        /* Personaliza os títulos dos widgets */
+        .widget-card h3 {
+            font-size: 20px;       /* Tamanho do título */
+            margin-bottom: 10px;   /* Espaço abaixo do título */
+        }
+
+        /* Personaliza as descrições dos widgets */
+        .widget-description {
+            color: #91a0b8;        /* Cor da descrição */
+            font-size: 13px;       /* Tamanho da letra */
+            line-height: 1.6;      /* Espaço entre linhas */
+            margin-bottom: 20px;   /* Espaço abaixo do parágrafo */
+        }
+
+        /* Cria pequenas etiquetas de identificação */
+        .status-badge {
+            display: inline-block;       /* Permite controlar o tamanho da etiqueta */
+            background-color: #153b30;   /* Fundo verde escuro */
+            color: #42d6a0;              /* Texto verde */
+            padding: 5px 10px;           /* Espaçamento interior */
+            border-radius: 20px;        /* Cantos arredondados */
+            font-size: 11px;             /* Tamanho da letra */
+            margin-bottom: 15px;         /* Espaço abaixo da etiqueta */
+        }
+
+        /* Organiza as ferramentas verticalmente */
+        .tool-list {
+            display: flex;           /* Ativa o Flexbox */
+            flex-direction: column;  /* Coloca os elementos em coluna */
+            gap: 10px;                /* Espaço entre as ferramentas */
+            list-style: none;         /* Remove os marcadores predefinidos */
+        }
+
+        /* Personaliza cada ferramenta individual */
+        .tool-item {
+            background-color: #19273d; /* Fundo da ferramenta */
+            padding: 13px;             /* Espaçamento interior */
+            border-radius: 8px;        /* Cantos arredondados */
+            color: #ffffff;          /* Texto branco */
+            font-size: 13px;         /* Tamanho da letra */
+            font-weight: bold;       /* Texto a negrito */
+        }
+
+        /* Botão de acesso ao simulador */
+        .simulator-button {
+            display: block;            /* Apresenta a ligação como botão */
+            width: 100%;               /* Ocupa a largura do widget */
+            margin-top: 20px;          /* Espaço acima do botão */
+            padding: 12px;             /* Espaçamento interior */
+            border: 0;                 /* Remove o contorno predefinido */
+            border-radius: 8px;        /* Arredonda os cantos */
+            background-color: #2878e5; /* Fundo azul */
+            color: white;              /* Texto branco */
+            text-align: center;        /* Centra o texto */
+            text-decoration: none;     /* Remove o sublinhado */
+            font-size: 13px;           /* Tamanho da letra */
+            font-weight: bold;         /* Texto a negrito */
+            transition: 0.3s;          /* Suaviza a alteração de cor */
+        }
+
+        .simulator-button:hover {
+            background-color: #155fc4;
+        }
+
+        /* Personaliza a parte inferior do website */
+        footer {
+            margin-top: 45px;           /* Espaço acima do rodapé */
+            padding: 22px;              /* Espaçamento interior */
+            border-top: 1px solid #263650; /* Linha de separação */
+            text-align: center;         /* Centra o texto */
+            color: #71819a;             /* Cor do texto */
+            font-size: 12px;            /* Tamanho da letra */
+        }
+
+        /* Estas regras são aplicadas quando o ecrã tem até 950px */
+        @media (max-width: 950px) {
+
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* Apresenta os widgets em duas colunas */
+            }
+
+            nav {
+                gap: 12px; /* Reduz o espaço entre os links */
+            }
+
+        }
+
+        /* Estas regras são aplicadas em ecrãs até 650px */
+        @media (max-width: 650px) {
+
+            body {
+                padding: 12px; /* Reduz as margens da página */
+            }
+
+            header {
+                flex-direction: column; /* Coloca os elementos em coluna */
+                gap: 20px;               /* Espaço entre os elementos */
+                padding: 20px;           /* Reduz o espaçamento interior */
+            }
+
+            nav {
+                flex-wrap: wrap;         /* Permite que os links passem para outra linha */
+                justify-content: center; /* Centra os links */
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                /* Apresenta os widgets um por baixo do outro */
+            }
+
+            .welcome h1 {
+                font-size: 24px; /* Reduz o título principal */
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+        <!---CABEÇALHO DO WEBSITE-->
+
+    <header>
+
+        <!-- Nome da plataforma -->
+        <a class="logo" href="paginainicial.html" aria-label="FinanceLab, página inicial">
+            Finance<span>Lab.</span>
+        </a>
+
+        <!-- Menu de navegação entre as páginas -->
+        <nav>
+
+
+            <a href="#investimentos">Investimentos</a>
+
+            <a href="#financas-pessoais">Finanças Pessoais</a>
+
+            <a href="#money-catcher">Money Catcher</a>
+
+        </nav>
+
+    </header>
+
+    <section class="welcome">
+
+        <!-- Título principal da página -->
+        <h1>FinanceLab</h1>
+
+        <!-- Pequena apresentação da plataforma -->
+        <p>
+            A FinanceLab é um projeto educativo em Python, HTML e CSS para simular investimentos em ETFs,
+            organizar despesas pessoais e aliviar o stress com o Money Catcher.
+        </p>
+
+    </section>
+
+    <section>
+
+
+        <!-- Título e descrição da secção -->
+        <div class="section-title">
+
+            <h2>Ferramentas Financeiras</h2>
+
+            <p>
+                Escolhe uma categoria para explorar os simuladores disponíveis.
+            </p>
+
+        </div>
+
+        <!-- Grelha que contém os três widgets -->
+        <main class="dashboard-grid">
+
+            <article id="investimentos" class="widget-card">
+
+                <!-- Etiqueta de identificação -->
+                <span class="status-badge">
+                    Ferramentas de Investimento
+                </span>
+
+                <!-- Nome do widget -->
+                <h3>Laboratório de Investimentos</h3>
+
+                <!-- Descrição do widget -->
+                <p class="widget-description">
+                    Projeta um plano de ETF e observa o efeito do capital inicial,
+                    dos reforços, dos custos e da inflação.
+                </p>
+
+
+                <!-- Tópicos de investimento -->
+                <ul class="tool-list">
+                    <li class="tool-item">Simulador de ETFs</li>
+                    <li class="tool-item">Projeção com reforços e custos</li>
+                </ul>
+
+                <a href="pages/investing.html" class="simulator-button">
+                    Abrir simulador
+                </a>
+
+            </article>
+
+            <article id="financas-pessoais" class="widget-card">
+
+
+                <!-- Etiqueta de identificação -->
+                <span class="status-badge">
+                    Gestão do Dinheiro
+                </span>
+
+                <!-- Nome do widget -->
+                <h3>Finanças Pessoais</h3>
+
+                <!-- Descrição do widget -->
+                <p class="widget-description">
+                    Regista despesas por data e categoria e acompanha os totais.
+                </p>
+
+
+                <!-- Tópicos de finanças pessoais -->
+                <ul class="tool-list">
+                    <li class="tool-item">Registo de Despesas</li>
+                    <li class="tool-item">Totais por categoria</li>
+                </ul>
+
+                <a href="personal_finance.html" class="simulator-button">
+                    Abrir simulador
+                </a>
+
+            </article>
+
+            <article id="money-catcher" class="widget-card">
+
+                <!-- Etiqueta de identificação -->
+                <span class="status-badge">
+                    Mini-jogo financeiro
+                </span>
+
+                <!-- Nome do widget -->
+                <h3>Money Catcher</h3>
+
+                <!-- Descrição do widget -->
+                <p class="widget-description">
+                    Apanha moedas e notas, evita despesas inesperadas e tenta
+                    atingir o melhor saldo possível antes do tempo terminar.
+                </p>
+
+
+                <!-- Elementos do mini-jogo -->
+                <ul class="tool-list">
+                    <li class="tool-item">Moedas, notas e bónus</li>
+                    <li class="tool-item">Despesas inesperadas e recorde</li>
+                </ul>
+
+                <a href="money_catcher" class="simulator-button">
+                    Jogar Money Catcher
+                </a>
+
+            </article>
+
+
+        </main>
+
+    </section>
+
+    <footer class="home-footer">
+        <span>FinanceLab · Projeto de Multimédia</span>
+        <nav aria-label="Ligações do rodapé">
+            <a href="pages/investing.html">Investimentos</a>
+            <a href="personal_finance.html">Finanças Pessoais</a>
+            <a href="money_catcher">Money Catcher</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>

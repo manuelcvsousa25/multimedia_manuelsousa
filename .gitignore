@@ -1,0 +1,8 @@
+/data/despesas.json
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.vscode/
+data/*.json
+*.tmp

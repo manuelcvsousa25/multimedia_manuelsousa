@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Regista e acompanha as tuas despesas no FinanceLab.">
+    <title>FinanceLab | Registo de Despesas</title>
+    <link rel="stylesheet" href="paginainicial.css?v=2">
+</head>
+<body class="finance-page" id="topo">
+    <header class="finance-header">
+        <a class="finance-logo" href="paginainicial.html">Finance<span>Lab.</span></a>
+        <nav aria-label="Navegação principal">
+            <a href="paginainicial.html">Página inicial</a>
+            <a href="pages/investing.html">Simulador de ETFs</a>
+            <a href="money_catcher">Money Catcher</a>
+        </nav>
+    </header>
+
+    <main class="finance-container">
+        <section class="finance-hero">
+            <p class="finance-eyebrow">FINANCELAB · GESTÃO DO DINHEIRO</p>
+            <h1>Registo de Despesas</h1>
+            <p>Acompanha os teus gastos por data e categoria, com totais sempre atualizados.</p>
+        </section>
+
+        <!-- O servidor coloca aqui erros ou mensagens após cada submissão. -->
+        <!-- MENSAGEM_FINANCAS -->
+        <!-- CONFIRMACAO_ACAO -->
+
+        <section class="finance-section" id="registo-despesas" aria-labelledby="despesas-titulo">
+            <div class="finance-section-heading">
+                <div>
+                    <p class="finance-eyebrow">REGISTAR · ORGANIZAR · ACOMPANHAR</p>
+                    <h2 id="despesas-titulo">Adicionar uma despesa</h2>
+                </div>
+                <span class="finance-icon" aria-hidden="true">＋</span>
+            </div>
+
+            <form class="finance-card" method="post" action="/personal_finance.html">
+                <input type="hidden" name="ferramenta" value="adicionar">
+                <div class="finance-form-grid expense-form-grid">
+                    <div class="finance-field">
+                        <label for="descricao_despesa">Descrição</label>
+                        <input id="descricao_despesa" name="descricao_despesa" type="text" maxlength="100" required
+                               placeholder="Ex.: Compras no supermercado" value="__DESPESA_DESCRICAO__">
+                    </div>
+                    <div class="finance-field">
+                        <label for="categoria_despesa">Categoria</label>
+                        <select id="categoria_despesa" name="categoria_despesa" required>
+                            <option value="">Escolhe uma categoria</option>
+                            <option value="Alimentação" __CAT_ALIMENTACAO__>Alimentação</option>
+                            <option value="Habitação" __CAT_HABITACAO__>Habitação</option>
+                            <option value="Transportes" __CAT_TRANSPORTES__>Transportes</option>
+                            <option value="Saúde" __CAT_SAUDE__>Saúde</option>
+                            <option value="Educação" __CAT_EDUCACAO__>Educação</option>
+                            <option value="Lazer" __CAT_LAZER__>Lazer</option>
+                            <option value="Compras" __CAT_COMPRAS__>Compras</option>
+                            <option value="Subscrições" __CAT_SUBSCRICOES__>Subscrições</option>
+                            <option value="Outros" __CAT_OUTROS__>Outros</option>
+                        </select>
+                    </div>
+                    <div class="finance-field">
+                        <label for="valor_despesa">Valor (€)</label>
+                        <input id="valor_despesa" name="valor_despesa" type="number" min="0.01" step="any" required
+                               placeholder="Ex.: 24,50" value="__DESPESA_VALOR__">
+                    </div>
+                    <div class="finance-field">
+                        <label for="data_despesa">Data</label>
+                        <input id="data_despesa" name="data_despesa" type="date" required value="__DATA_DESPESA__">
+                    </div>
+                </div>
+                <button class="finance-primary-button" type="submit">Adicionar despesa</button>
+            </form>
+
+            <!-- RESUMO_DESPESAS -->
+            <!-- TABELA_DESPESAS -->
+
+            <p class="finance-disclaimer">
+        </section>
+
+        <a class="finance-back-top" href="#topo">Voltar ao topo</a>
+    </main>
+
+    <footer class="finance-footer">
+        <p>FinanceLab · Projeto educativo de Multimédia</p>
+        <a href="paginainicial.html">Voltar à página inicial</a>
+    </footer>
+</body>
+</html>

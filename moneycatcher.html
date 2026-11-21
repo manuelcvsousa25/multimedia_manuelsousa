@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mini-jogo financeiro Money Catcher do FinanceLab.">
+    <title>FinanceLab | Money Catcher</title>
+    <link rel="stylesheet" href="paginainicial.css?v=2">
+    <script src="money_catcher.js" defer></script>
+</head>
+<body class="trading-page money-catcher-page">
+    <header class="trading-header">
+        <a class="logo" href="paginainicial.html">Finance<span>Lab.</span></a>
+        <nav aria-label="Navegação principal">
+            <a href="paginainicial.html">Página inicial</a>
+            <a href="pages/investing.html">Simulador de ETFs</a>
+            <a href="personal_finance.html">Despesas</a>
+            <a href="money_catcher" aria-current="page">Money Catcher</a>
+        </nav>
+    </header>
+
+    <main class="trading-container money-catcher-container">
+        <section class="trading-intro">
+            <p class="eyebrow">FINANCELAB · PAUSA FINANCEIRA</p>
+            <h1>Money <span>Catcher</span></h1>
+            <p>
+                Apanha moedas e foge às despesas inesperadas.
+                Joga com as setas ou A/D; também podes usar os botões no ecrã.
+            </p>
+        </section>
+
+        <p id="storage-message" class="game-message" role="status" hidden></p>
+        <noscript>
+            <p class="game-message" role="alert">
+            </p>
+        </noscript>
+
+        <section class="game-panel game-start-panel" id="game-intro">
+            <p class="game-kicker">ARCADE</p>
+            <h2>Apanha moedas. Desvia-te das despesas.</h2>
+            <p>Move o cesto para apanhar dinheiro e evita os custos inesperados.</p>
+            <div class="game-record">
+                Melhor pontuação <strong id="intro-best-score">0</strong>
+            </div>
+            <ul class="game-rules">
+                <li>Moeda de 1 €: +1 ponto; moeda de 2 €: +2 pontos.</li>
+                <li>Nota de 5 €: +5 pontos; bónus especial: +10 pontos.</li>
+                <li>Uma fatura tira 1 vida; uma despesa inesperada tira 2.</li>
+                <li>Tens 3 vidas e 60 segundos. A dificuldade aumenta com o saldo.</li>
+            </ul>
+            <button class="primary-button" id="start-game" type="button">Começar Jogo</button>
+        </section>
+
+        <section class="game-panel game-active-panel" id="game-play" aria-label="Partida" hidden>
+            <div class="game-hud" aria-live="polite">
+                <div><span>Saldo</span><strong id="score-value">0</strong></div>
+                <div><span>Vidas</span><strong class="game-lives" id="lives-value">♥♥♥</strong></div>
+                <div><span>Tempo</span><strong><span id="time-value">60</span>s</strong></div>
+                <div><span>Recorde</span><strong id="active-best-score">0</strong></div>
+            </div>
+
+            <div class="game-board" id="game-board" role="region"
+                 aria-label="Área de jogo: apanha moedas e evita despesas">
+                <div class="game-catcher" id="game-catcher" aria-label="Cesto">🧺</div>
+            </div>
+
+            <div class="game-controls" aria-label="Controlos do jogo">
+                <button class="secondary-button" id="move-left" type="button"
+                        aria-label="Mover o cesto para a esquerda">← Esquerda</button>
+                <button class="secondary-button" id="move-right" type="button"
+                        aria-label="Mover o cesto para a direita">Direita →</button>
+            </div>
+            <p class="game-hint">Controlos: ←/→ ou A/D. No telemóvel, usa os botões.</p>
+        </section>
+
+        <section class="game-panel game-over-panel" id="game-over" aria-live="polite" hidden>
+            <p class="game-kicker">FIM DE JOGO</p>
+            <h2 id="final-score">Saldo final: 0</h2>
+            <p id="end-reason" class="game-ending"></p>
+            <p>Saldo atingido: <strong id="final-best-score">0</strong></p>
+            <button class="primary-button" id="restart-game" type="button">Jogar Novamente</button>
+        </section>
+    </main>
+
+    <footer class="trading-footer">
+        <a href="paginainicial.html">Voltar à página inicial</a>
+    </footer>
+</body>
+</html>
