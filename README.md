@@ -9,7 +9,7 @@ Autor: Manuel Sousa nº14
 Turma: 12º A3
 
 Link da Aplicação Web: http://localhost:8000/ 
-(Antes, no terminal VSCode: cd "C:\Users\Manuel Sousa\Desktop\Multimédia\Projeto_23_11"; python server.py;)
+(Antes, no terminal VSCode: cd .\Projeto_23_11; python server.py;)
 
 1. Visão Geral do Projeto
 Descrição: A FinanceLab é uma página web, programada e,m HMTL, CSS e Python, que tem como objetivo compreender, ao simular, investimentos em ETFs, usando o Laboratório de Investimentos. A FinanceLab tem projetada também uma lista de despesas para organização pessoal nas Finanças Pessoais. No widget final, Money Catcher, está programado um jogo para aliviar o stress :)
